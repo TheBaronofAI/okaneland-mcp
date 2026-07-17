@@ -14,6 +14,7 @@
     "start": "node dist/server.js",
     "test": "npm run build && node --test dist/*.test.js",
     "smoke": "npm run build && node smoke.mjs",
+    "bundle": "npm run build && npm prune --omit=dev && npx -y @anthropic-ai/mcpb@latest pack . okaneland-mcp.mcpb && npm install --no-audit --no-fund",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

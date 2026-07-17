@@ -1,0 +1,11 @@
+src/
+dist/*.test.js
+*.mcpb
+.git/
+.gitignore
+.mcpbignore
+tsconfig.json
+smoke.mjs
+PUBLISHING.md
+SUBMISSIONS.md
+server.json

@@ -29,14 +29,21 @@ Namespace `io.github.thebaronofai/okaneland-mcp` is provable via your GitHub log
 cleaner brand namespace `com.okaneland/okaneland-mcp` is possible via DNS verification of
 okaneland.com if you'd rather (adds a TXT record step).
 
-## 2. Smithery — smithery.ai
-Sign in with GitHub → *Add / Deploy server* → point it at the repo. Smithery favors a
-config file for hosted deploys; for a local stdio npm server, submit the GitHub repo and
-it detects `@okaneland/mcp`. Use the fields above.
+## 2. Smithery — smithery.ai (needs the MCPB bundle; ONE command left for you)
+Smithery's web form only takes hosted HTTPS servers (Streamable HTTP). A local stdio
+server like this one must be published as a prebuilt MCPB bundle via the CLI. The bundle
+is already built (`npm run bundle` → `okaneland-mcp.mcpb`, manifest at `manifest.json`).
+Run, from the repo root:
+```bash
+npx -y @smithery/cli@latest auth login          # authorize in the browser (one time)
+npx -y @smithery/cli@latest mcp publish ./okaneland-mcp.mcpb -n <namespace>/okaneland-mcp
+```
+`<namespace>` is your Smithery namespace shown on smithery.ai/new (currently `hi-10f9`),
+or a branded one you create. No config schema is needed (the server takes no settings).
 
-## 3. mcp.so — mcp.so
-*Submit* → GitHub sign-in or the submission form. Paste the fields above; repo + npm
-package + description.
+## 3. mcp.so — mcp.so — DONE ✅
+Submitted via the free path (queued for review): category Finance & Commerce, tags set,
+overview rewritten to describe both tools. Manage at mcp.so → My submissions.
 
 ## 4. PulseMCP — pulsemcp.com
 Use their submit form. Paste name, description, repo, npm command, category.

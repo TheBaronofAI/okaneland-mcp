@@ -42,14 +42,30 @@ watch it call them. (Cursor, Windsurf, etc. use the same config shape.)
 is provable via GitHub login; a brand namespace `com.okaneland/okaneland-mcp` is possible
 via DNS verification of okaneland.com (adds a TXT-record step).
 
-## 5. Submit to directories
+## 5. MCPB bundle (Smithery + one-click Claude Desktop install)
+`manifest.json` (MCPB v0.2) describes the stdio server for Anthropic's MCPB format. Build a
+lean, self-contained bundle (build → prune dev deps → pack → restore dev deps):
+```bash
+npm run bundle          # -> okaneland-mcp.mcpb (~2.6 MB, gitignored)
+npx -y @anthropic-ai/mcpb@latest info okaneland-mcp.mcpb   # sanity check
+```
+The `.mcpb` is a build artifact (gitignored). Two uses:
+- **Claude Desktop**: users can install the `.mcpb` directly (drag into Settings → Extensions).
+- **Smithery**: a stdio server can't use Smithery's URL form; publish the bundle via CLI:
+  ```bash
+  npx -y @smithery/cli@latest auth login
+  npx -y @smithery/cli@latest mcp publish ./okaneland-mcp.mcpb -n <namespace>/okaneland-mcp
+  ```
+Bump `version` in BOTH `package.json` and `manifest.json` together before re-bundling.
+
+## 6. Submit to directories
 See `SUBMISSIONS.md` for the exact copy-paste fields and per-site steps. Order:
 1. **Official MCP Registry** (canonical; others ingest from it) — `mcp-publisher` + `server.json`.
-2. **Smithery**, **mcp.so**, **PulseMCP** — GitHub sign-in / submit form.
+2. **mcp.so** — DONE (free path, queued). **Smithery** — bundle built; run the publish command above.
 3. **Glama** — auto-indexes npm/GitHub; may appear on its own.
-4. **awesome-mcp-servers** — PR under the right category.
+4. **awesome-mcp-servers** — PR #10337 (Finance & Fintech).
 
-## 6. Launch touch
+## 7. Launch touch
 One X post / thread and a newsletter line pointing the vibe-coder audience at it. That,
 plus the directory backlinks, is the whole distribution play.
 
