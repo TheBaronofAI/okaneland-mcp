@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.thebaronofai/okaneland-mcp",
+  "description": "Verified AI-tool prices and AI product margin math for agents.",
+  "repository": {
+    "url": "https://github.com/TheBaronofAI/okaneland-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "websiteUrl": "https://okaneland.com/palette/keep/",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@okaneland/mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

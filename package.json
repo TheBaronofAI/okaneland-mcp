@@ -1,0 +1,50 @@
+{
+  "name": "@okaneland/mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing Okane Land's verified AI-tool price index and AI margin calculator to agents.",
+  "type": "module",
+  "bin": {
+    "okaneland-mcp": "dist/server.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "npm run build && node --test dist/*.test.js",
+    "smoke": "npm run build && node smoke.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "pricing",
+    "margin",
+    "calculator",
+    "saas",
+    "okaneland"
+  ],
+  "author": "Okane Land",
+  "license": "MIT",
+  "homepage": "https://okaneland.com/palette/keep/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBaronofAI/okaneland-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheBaronofAI/okaneland-mcp/issues"
+  }
+}
