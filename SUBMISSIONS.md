@@ -45,12 +45,13 @@ Use their submit form. Paste name, description, repo, npm command, category.
 Glama auto-indexes npm/GitHub MCP servers, so `@okaneland/mcp` may appear on its own
 (with a score badge). To claim/speed it, sign in with GitHub and add the server.
 
-## 6. awesome-mcp-servers (GitHub PR)
-Add this line under **### Developer Tools** (keep the section's ordering), then open a PR:
+## 6. awesome-mcp-servers (GitHub PR) — DONE ✅
+Submitted: https://github.com/punkpeye/awesome-mcp-servers/pull/10337 (Finance & Fintech,
+fast-track `🤖🤖🤖` agent PR). Entry line submitted:
 ```
-- [okaneland/mcp](https://github.com/TheBaronofAI/okaneland-mcp) 📇 🏠 - Verified AI-tool prices (100+ tools) and AI product margin + break-even math. `npx -y @okaneland/mcp`
+- [TheBaronofAI/okaneland-mcp](https://github.com/TheBaronofAI/okaneland-mcp) 📇 🏠 ☁️ - Two tools for building and pricing AI products: `get_ai_tool_prices` returns human-verified pricing for 100+ AI tools (what is free, monthly cost, the gotcha, last-verified date) from okaneland.com, and `calculate_ai_margin` turns an AI product's MRR into what is kept after token costs, card fees, failed payments, refunds and tax, plus break-even price and usage cap. `npx -y @okaneland/mcp`
 ```
-(📇 = TypeScript, 🏠 = local/stdio.)
+(📇 = TypeScript, 🏠 = local/stdio, ☁️ = talks to a remote API.)
 
 ## Launch touch
 One X post + a newsletter line pointing your audience at it. That, plus the backlinks
