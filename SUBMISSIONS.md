@@ -41,8 +41,10 @@ so the build uses a plain zip, not `mcpb pack`. See PUBLISHING.md §5.
 Submitted via the free path (queued for review): category Finance & Commerce, tags set,
 overview rewritten to describe both tools. Manage at mcp.so → My submissions.
 
-## 4. PulseMCP — pulsemcp.com
-Use their submit form. Paste name, description, repo, npm command, category.
+## 4. PulseMCP — pulsemcp.com — AUTO (via the registry) ✅
+No manual submit. Their submit page: "We ingest entries from the Official MCP Registry
+daily and process them weekly." Since #1 is published, okaneland-mcp will appear on its
+own within ~a week. Only if it hasn't after a week: email hello@pulsemcp.com.
 
 ## 5. Glama — glama.ai/mcp/servers
 Glama auto-indexes npm/GitHub MCP servers, so `@okaneland/mcp` may appear on its own
