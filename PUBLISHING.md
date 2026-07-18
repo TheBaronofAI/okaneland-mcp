@@ -42,21 +42,28 @@ watch it call them. (Cursor, Windsurf, etc. use the same config shape.)
 is provable via GitHub login; a brand namespace `com.okaneland/okaneland-mcp` is possible
 via DNS verification of okaneland.com (adds a TXT-record step).
 
-## 5. MCPB bundle (Smithery + one-click Claude Desktop install)
-`manifest.json` (MCPB v0.2) describes the stdio server for Anthropic's MCPB format. Build a
-lean, self-contained bundle (build → prune dev deps → pack → restore dev deps):
+## 5. MCPB bundle (Smithery + Claude Desktop)
+`manifest.json` (MCPB v0.2) describes the stdio server. Build the bundle:
 ```bash
 npm run bundle          # -> okaneland-mcp.mcpb (~2.6 MB, gitignored)
-npx -y @anthropic-ai/mcpb@latest info okaneland-mcp.mcpb   # sanity check
 ```
+**Why `scripts/pack.sh` uses a plain `zip`, not `mcpb pack`:** MCPB's manifest schema
+FORBIDS per-tool `inputSchema`, but Smithery's release API REQUIRES an `inputSchema`
+object on every tool (else publish fails with `Invalid input: expected object, received
+undefined`, one per tool). So `manifest.json` carries `inputSchema` and we zip it directly.
+`mcpb validate manifest.json` will flag those keys as unrecognized; that is expected. Keep
+each tool's `inputSchema` in sync with the zod shape in `src/server.ts`.
+
 The `.mcpb` is a build artifact (gitignored). Two uses:
-- **Claude Desktop**: users can install the `.mcpb` directly (drag into Settings → Extensions).
 - **Smithery**: a stdio server can't use Smithery's URL form; publish the bundle via CLI:
   ```bash
   npx -y @smithery/cli@latest auth login
   npx -y @smithery/cli@latest mcp publish ./okaneland-mcp.mcpb -n <namespace>/okaneland-mcp
   ```
-Bump `version` in BOTH `package.json` and `manifest.json` together before re-bundling.
+  After publishing, in the server's Settings uncheck **Unlisted** so it appears in search.
+- **Claude Desktop**: users can install the `.mcpb` directly (drag into Settings → Extensions).
+
+Bump `version` in `package.json` AND `manifest.json` together before re-bundling.
 
 ## 6. Submit to directories
 See `SUBMISSIONS.md` for the exact copy-paste fields and per-site steps. Order:

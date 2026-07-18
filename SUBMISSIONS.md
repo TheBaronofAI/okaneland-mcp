@@ -29,17 +29,17 @@ Namespace `io.github.thebaronofai/okaneland-mcp` is provable via your GitHub log
 cleaner brand namespace `com.okaneland/okaneland-mcp` is possible via DNS verification of
 okaneland.com if you'd rather (adds a TXT record step).
 
-## 2. Smithery — smithery.ai (needs the MCPB bundle; ONE command left for you)
-Smithery's web form only takes hosted HTTPS servers (Streamable HTTP). A local stdio
-server like this one must be published as a prebuilt MCPB bundle via the CLI. The bundle
-is already built (`npm run bundle` → `okaneland-mcp.mcpb`, manifest at `manifest.json`).
-Run, from the repo root:
+## 2. Smithery — smithery.ai — DONE ✅
+Live at https://smithery.ai/servers/hi-10f9/okaneland-mcp (namespace `hi-10f9`, Local,
+listed, both tools shown). Published via the MCPB bundle over the CLI (the web form only
+takes hosted HTTPS servers). To re-publish after a change:
 ```bash
-npx -y @smithery/cli@latest auth login          # authorize in the browser (one time)
-npx -y @smithery/cli@latest mcp publish ./okaneland-mcp.mcpb -n <namespace>/okaneland-mcp
+npm run bundle                                   # scripts/pack.sh -> okaneland-mcp.mcpb
+npx -y @smithery/cli@latest auth login           # if not already authed
+npx -y @smithery/cli@latest mcp publish ./okaneland-mcp.mcpb -n hi-10f9/okaneland-mcp
 ```
-`<namespace>` is your Smithery namespace shown on smithery.ai/new (currently `hi-10f9`),
-or a branded one you create. No config schema is needed (the server takes no settings).
+Note: the bundle must carry per-tool `inputSchema` (Smithery requires it, MCPB forbids it),
+so the build uses a plain zip, not `mcpb pack`. See PUBLISHING.md §5.
 
 ## 3. mcp.so — mcp.so — DONE ✅
 Submitted via the free path (queued for review): category Finance & Commerce, tags set,

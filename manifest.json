@@ -31,14 +31,39 @@
       ]
     }
   },
+  "_note_inputSchema": "MCPB's schema forbids per-tool inputSchema, but Smithery's release API requires it. The bundle is built with a plain zip (scripts/pack.sh), not `mcpb pack`, so these schemas survive. `mcpb validate` will flag them; that is expected. See PUBLISHING.md.",
   "tools": [
     {
       "name": "get_ai_tool_prices",
-      "description": "Current, human-verified pricing for 100+ AI tools, fetched live from the maintained index at okaneland.com."
+      "description": "Current, human-verified pricing for 100+ AI tools, fetched live from the maintained index at okaneland.com.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string", "description": "Exact category name to filter by." },
+          "query": { "type": "string", "description": "Free-text match against a tool's name, description, id, or category." },
+          "id": { "type": "string", "description": "Exact tool id, e.g. 'creatify' or 'cursor'." },
+          "limit": { "type": "integer", "description": "Maximum number of tools to return." }
+        }
+      }
     },
     {
       "name": "calculate_ai_margin",
-      "description": "Turns an AI product's MRR into what you keep after the token bill, fees, churn and tax, plus break-even price and usage cap."
+      "description": "Turns an AI product's MRR into what you keep after the token bill, fees, churn and tax, plus break-even price and usage cap.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pricePerMonth": { "type": "number", "description": "What one customer pays per month, in USD." },
+          "payingCustomers": { "type": "integer", "description": "Number of paying customers right now." },
+          "blendedTokenPricePerM": { "type": "number", "description": "Blended model token price in USD per million tokens." },
+          "tokensPerUserM": { "type": "number", "description": "Millions of tokens an average user burns per month." },
+          "monthlyChurnPct": { "type": "number", "description": "Monthly churn as a percent (default 6.1)." },
+          "intlCardPct": { "type": "number", "description": "Percent of sales on international cards (default 40)." },
+          "vatPct": { "type": "number", "description": "Sales tax / VAT percent you remit (default 0)." },
+          "failedPaymentsPct": { "type": "number", "description": "Percent of gross lost to failed and declined cards (default 9)." },
+          "refundsPct": { "type": "number", "description": "Percent of gross lost to refunds and disputes (default 3)." }
+        },
+        "required": ["pricePerMonth", "payingCustomers", "blendedTokenPricePerM", "tokensPerUserM"]
+      }
     }
   ],
   "compatibility": {
