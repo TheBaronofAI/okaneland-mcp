@@ -18,16 +18,21 @@ this file just removes the thinking.
 - **Tools:** `get_ai_tool_prices`, `calculate_ai_margin`
 
 ## 1. Official MCP Registry — registry.modelcontextprotocol.io
-`server.json` is at the repo root. Then, at the repo root:
+`server.json` (current schema, name `io.github.TheBaronofAI/okaneland-mcp`) is at the repo
+root and validates (`mcp-publisher validate`). The registry proves npm ownership via an
+`mcpName` field in the published package, so the package.json carries
+`"mcpName": "io.github.TheBaronofAI/okaneland-mcp"` and must be republished (npm versions
+are immutable, hence the 0.1.1 bump). Flow:
 ```bash
-# install the publisher CLI (check current docs; the registry is new and moving)
-# then authenticate the namespace as its owner and publish:
-mcp-publisher login github     # device flow; sign in as TheBaronofAI (owns io.github.thebaronofai/*)
-mcp-publisher publish          # reads ./server.json
+# 1) republish npm so 0.1.1 (with mcpName) is live  [needs your npm 2FA]
+npm publish --access public --otp=<code>
+# 2) authenticate the namespace (GitHub device flow)  [you authorize in the browser]
+mcp-publisher login github
+# 3) publish the registry entry  [reads ./server.json]
+mcp-publisher publish
 ```
-Namespace `io.github.thebaronofai/okaneland-mcp` is provable via your GitHub login. A
-cleaner brand namespace `com.okaneland/okaneland-mcp` is possible via DNS verification of
-okaneland.com if you'd rather (adds a TXT record step).
+`io.github.TheBaronofAI/*` is provable via your GitHub login. (A brand namespace
+`com.okaneland/*` is also possible via a DNS TXT record on okaneland.com.)
 
 ## 2. Smithery — smithery.ai — DONE ✅
 Live at https://smithery.ai/servers/hi-10f9/okaneland-mcp (namespace `hi-10f9`, Local,

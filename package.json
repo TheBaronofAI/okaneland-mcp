@@ -1,6 +1,7 @@
 {
   "name": "@okaneland/mcp",
-  "version": "0.1.0",
+  "mcpName": "io.github.TheBaronofAI/okaneland-mcp",
+  "version": "0.1.1",
   "description": "MCP server exposing Okane Land's verified AI-tool price index and AI margin calculator to agents.",
   "type": "module",
   "bin": {

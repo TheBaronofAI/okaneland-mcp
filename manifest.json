@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "okaneland-mcp",
   "display_name": "Okane Land",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Verified AI-tool prices and AI product margin math for agents.",
   "long_description": "Two tools for building and pricing AI products. get_ai_tool_prices returns live, human-verified pricing for 100+ AI tools (what is free, the real monthly cost, the gotcha, the last-verified date) from okaneland.com. calculate_ai_margin turns an AI product's MRR into what you keep after the token bill, card fees, failed payments, refunds and tax, plus the break-even price and usage cap. Runs locally over stdio; nothing to host.",
   "author": {

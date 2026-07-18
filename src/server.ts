@@ -10,7 +10,7 @@ import { z } from "zod";
 import { computeMargin } from "./margin.js";
 import { getPrices } from "./prices.js";
 
-const server = new McpServer({ name: "okaneland", version: "0.1.0" });
+const server = new McpServer({ name: "okaneland", version: "0.1.1" });
 
 server.tool(
   "get_ai_tool_prices",
