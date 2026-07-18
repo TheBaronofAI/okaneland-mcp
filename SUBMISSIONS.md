@@ -17,22 +17,13 @@ this file just removes the thinking.
 - **Transport:** stdio (local)
 - **Tools:** `get_ai_tool_prices`, `calculate_ai_margin`
 
-## 1. Official MCP Registry — registry.modelcontextprotocol.io
-`server.json` (current schema, name `io.github.TheBaronofAI/okaneland-mcp`) is at the repo
-root and validates (`mcp-publisher validate`). The registry proves npm ownership via an
-`mcpName` field in the published package, so the package.json carries
-`"mcpName": "io.github.TheBaronofAI/okaneland-mcp"` and must be republished (npm versions
-are immutable, hence the 0.1.1 bump). Flow:
-```bash
-# 1) republish npm so 0.1.1 (with mcpName) is live  [needs your npm 2FA]
-npm publish --access public --otp=<code>
-# 2) authenticate the namespace (GitHub device flow)  [you authorize in the browser]
-mcp-publisher login github
-# 3) publish the registry entry  [reads ./server.json]
-mcp-publisher publish
-```
-`io.github.TheBaronofAI/*` is provable via your GitHub login. (A brand namespace
-`com.okaneland/*` is also possible via a DNS TXT record on okaneland.com.)
+## 1. Official MCP Registry — registry.modelcontextprotocol.io — DONE ✅
+Live: `io.github.TheBaronofAI/okaneland-mcp` v0.1.1, status active (npm `@okaneland/mcp`).
+The registry proves npm ownership via the `mcpName` field in package.json (matches the
+server name); npm versions are immutable, so adding it required the 0.1.1 republish.
+`server.json` uses the current 2025-12-11 schema and validates (`mcp-publisher validate`).
+To publish a NEW version: bump everywhere, `npm publish --access public --otp=<code>`, then
+`mcp-publisher publish` (re-auth with `mcp-publisher login github` if needed).
 
 ## 2. Smithery — smithery.ai — DONE ✅
 Live at https://smithery.ai/servers/hi-10f9/okaneland-mcp (namespace `hi-10f9`, Local,
