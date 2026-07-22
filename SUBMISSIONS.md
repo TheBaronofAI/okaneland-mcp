@@ -46,13 +46,20 @@ No manual submit. Their submit page: "We ingest entries from the Official MCP Re
 daily and process them weekly." Since #1 is published, okaneland-mcp will appear on its
 own within ~a week. Only if it hasn't after a week: email hello@pulsemcp.com.
 
-## 5. Glama — glama.ai/mcp/servers
-Glama auto-indexes npm/GitHub MCP servers, so `@okaneland/mcp` may appear on its own
-(with a score badge). To claim/speed it, sign in with GitHub and add the server.
+## 5. Glama — glama.ai/mcp/servers — INDEXED, CLAIM PENDING (owner action)
+Auto-indexed at https://glama.ai/mcp/servers/TheBaronofAI/okaneland-mcp (2026-07).
+Status 2026-07-19: unclaimed; scores show "not tested"; Glama's crawl says
+"README.md not found" (stale — README.md exists on main; claiming triggers re-index).
+OWNER TODO: open the server page → "Claim" → sign in with GitHub (TheBaronofAI).
+Claiming unlocks the admin panel and kicks off the quality-score evaluation, which the
+awesome-mcp-servers reviewer requires (see #6).
 
-## 6. awesome-mcp-servers (GitHub PR) — DONE ✅
+## 6. awesome-mcp-servers (GitHub PR) — DONE ✅ (badge added 2026-07-19)
 Submitted: https://github.com/punkpeye/awesome-mcp-servers/pull/10337 (Finance & Fintech,
-fast-track `🤖🤖🤖` agent PR). Entry line submitted:
+fast-track `🤖🤖🤖` agent PR). Reviewer asked for a Glama claim + score badge; the badge
+(`.../badges/score.svg`, the list's convention — the email's `status.svg` pattern 404s)
+was added to the entry and pushed to the PR branch 2026-07-19. It renders live and will
+show the score automatically once #5 is claimed and evaluated. Entry line submitted:
 ```
 - [TheBaronofAI/okaneland-mcp](https://github.com/TheBaronofAI/okaneland-mcp) 📇 🏠 ☁️ - Two tools for building and pricing AI products: `get_ai_tool_prices` returns human-verified pricing for 100+ AI tools (what is free, monthly cost, the gotcha, last-verified date) from okaneland.com, and `calculate_ai_margin` turns an AI product's MRR into what is kept after token costs, card fees, failed payments, refunds and tax, plus break-even price and usage cap. `npx -y @okaneland/mcp`
 ```
